@@ -10,4 +10,10 @@ class Site extends Controller
     {
         return response()->make(view('login'), 200);
     }
+
+    public function auth(Request $request)
+    {
+        session(['login' => $request->post()]);
+        return redirect('home');
+    }
 }
