@@ -12,6 +12,9 @@
     @if(Session::has('login'))
     <p>Halo <b>{{ (Session::get('login')['username']) }}</b></p>
     @endif
+    <br>
+    <br>
+    <a href="logout">logout disini</a>
 </body>
 
 </html>

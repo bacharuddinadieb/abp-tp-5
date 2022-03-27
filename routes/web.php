@@ -20,3 +20,4 @@ Route::get('/welcome', function () {
 Route::get('/login', 'App\Http\Controllers\Site@index');
 Route::post('/auth', 'App\Http\Controllers\Site@auth');
 Route::get('/home', 'App\Http\Controllers\Site@home');
+Route::get('/logout', 'App\Http\Controllers\Site@logout');

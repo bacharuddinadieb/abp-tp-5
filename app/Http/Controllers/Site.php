@@ -21,4 +21,10 @@ class Site extends Controller
     {
         return response()->make(view('home'), 200);
     }
+
+    public function logout(Request $request)
+    {
+        $request->session()->forget('login');
+        return response()->make(view('login'), 200);
+    }
 }
