@@ -13,7 +13,7 @@ class Site extends Controller
 
     public function auth(Request $request)
     {
-        session(['login' => $request->post()]);
+        session(['LOGIN_SESSION' => $request->post()]);
         return redirect('home');
     }
 
@@ -24,7 +24,7 @@ class Site extends Controller
 
     public function logout(Request $request)
     {
-        $request->session()->forget('login');
+        $request->session()->forget('LOGIN_SESSION');
         return response()->make(view('login'), 200);
     }
 }

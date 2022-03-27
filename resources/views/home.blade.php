@@ -9,8 +9,8 @@
 </head>
 
 <body>
-    @if(Session::has('login'))
-    <p>Halo <b>{{ (Session::get('login')['username']) }}</b></p>
+    @if(Session::has('LOGIN_SESSION'))
+    <p>Halo <b>{{ (Session::get('LOGIN_SESSION')['username']) }}</b></p>
     @endif
     <br>
     <br>
