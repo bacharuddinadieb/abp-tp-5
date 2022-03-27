@@ -16,4 +16,9 @@ class Site extends Controller
         session(['login' => $request->post()]);
         return redirect('home');
     }
+
+    public function home()
+    {
+        return response()->make(view('home'), 200);
+    }
 }
