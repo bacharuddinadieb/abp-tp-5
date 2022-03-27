@@ -6,8 +6,12 @@ use Illuminate\Http\Request;
 
 class Site extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $loginSession = $request->session()->get('LOGIN_SESSION');
+        if (isset($loginSession)) {
+            return redirect('home');
+        }
         return response()->make(view('login'), 200);
     }
 
@@ -17,14 +21,18 @@ class Site extends Controller
         return redirect('home');
     }
 
-    public function home()
+    public function home(Request $request)
     {
+        $loginSession = $request->session()->get('LOGIN_SESSION');
+        if (!isset($loginSession)) {
+            return redirect('login');
+        }
         return response()->make(view('home'), 200);
     }
 
     public function logout(Request $request)
     {
         $request->session()->forget('LOGIN_SESSION');
-        return response()->make(view('login'), 200);
+        return redirect('login');
     }
 }
